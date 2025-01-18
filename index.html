@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Virtual Persona 360 Demo</title>
+</head>
+<style>
+    body {
+        background-color: #793aff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    #logo {
+        position: absolute;
+        top: 10px;
+    }
+
+    #heygen-streaming-embed {
+        z-index: 9999;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 800px;
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+        box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+    }
+
+    #heygen-streaming-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    #heygen-streaming-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
+<body>
+    <img id="logo" src="./logo.png" alt="Logo" />
+    <script>
+        !function (window) {
+            const host = "https://labs.heygen.com",
+                url = host + "/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJEZXh0ZXJfTGF3eWVyX1NpdHRpbmdfcHVi%0D%0AbGljIiwicHJldmlld0ltZyI6Imh0dHBzOi8vZmlsZXMyLmhleWdlbi5haS9hdmF0YXIvdjMvZTIw%0D%0AYWMwYzkwMjE4NGZmNzkzZTc1YWU0ZTEzOWI3ZGNfNDU2MDAvcHJldmlld190YXJnZXQud2VicCIs%0D%0AIm5lZWRSZW1vdmVCYWNrZ3JvdW5kIjpmYWxzZSwia25vd2xlZGdlQmFzZUlkIjoiYjk3YWZhZWNm%0D%0AN2RlNDMzM2E0ZTFjOWYxYWI4ZTY5MWIiLCJ1c2VybmFtZSI6ImRkODJmZmQ5MGYwMzQxYzk5NDdh%0D%0AOTI2Mzg4ZDU5ZjljIn0%3D&inIFrame=1",
+                clientWidth = document.body.clientWidth,
+                wrapDiv = document.createElement("div");
+            wrapDiv.id = "heygen-streaming-embed";
+            const container = document.createElement("div");
+            container.id = "heygen-streaming-container";
+            const stylesheet = document.createElement("style");
+            stylesheet.innerHTML = `
+                #heygen-streaming-embed {
+                    z-index: 9999;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 80%;
+                    max-width: 800px;
+                    aspect-ratio: 16 / 9;
+                    border-radius: 8px;
+                    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);
+                    overflow: hidden;
+                }
+                #heygen-streaming-container {
+                    width: 100%;
+                    height: 100%;
+                }
+                #heygen-streaming-container iframe {
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                }
+            `;
+            const iframe = document.createElement("iframe");
+            iframe.allowFullscreen = !1;
+            iframe.title = "Streaming Embed";
+            iframe.role = "dialog";
+            iframe.allow = "microphone";
+            iframe.src = url;
+            container.appendChild(iframe);
+            wrapDiv.appendChild(stylesheet);
+            wrapDiv.appendChild(container);
+            document.body.appendChild(wrapDiv);
+        }(globalThis);
+    </script>
+</body>
+
+</html>
