@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <title>Virtual Persona 360 Demo</title>
 </head>
@@ -12,16 +12,66 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         height: 100vh;
+        flex-wrap: nowrap;
     }
+    .btn-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        color: #fff;
+        width: 100%;
+        z-index: 9999;
+        position: fixed;
+        top: 80%;
+        left: 0%;
+        margin: 0 auto;
+    }
+    .btn-div div{
+        margin: 20px;
+    }
+    .vp360-btn{
+    color: #FFFFFF;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #0000FF;
+    padding-top: 15px;
+    padding-right: 3vw;
+    padding-bottom: 15px;
+    padding-left: 3vw;
+    text-decoration: none;
+    }
+    .heading{
+        font-size: 2.5rem;
+    }
+    /* For small devices (tablets) */
+@media (max-width: 576px) {
+    /* CSS styles for small devices go here */
+    .heading{
+        font-size: 1.5rem;
+    }
+    #logo{
+        width: 70%;
+    }
+    .btn-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+}
 
     #logo {
-        position: absolute;
-        top: 10px;
+        /* position: absolute;
+        top: 10px; */
     }
-
-    #heygen-streaming-embed {
+    /* #heygen-streaming-embed {
         z-index: 9999;
         position: fixed;
         top: 50%;
@@ -33,7 +83,7 @@
         border-radius: 8px;
         box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);
         overflow: hidden;
-    }
+    } */
 
     #heygen-streaming-container {
         width: 100%;
@@ -47,7 +97,8 @@
     }
 </style>
 <body>
-    <img id="logo" src="https://customaiexpert.com/wp-content/uploads/2025/01/custom-ai-persona-blue-logo-06x.webp" alt="Logo" />
+    <img id="logo" src="https://customaiexpert.com/wp-content/uploads/2025/01/custom-ai-expert-white-logo.png" alt="custom ai expart Logo" />
+    <h1 class="heading" style="text-align: center;color: #fff;">Virtual Persona 360</h1>
     <script>
         !function (window) {
             const host = "https://labs.heygen.com",
@@ -94,6 +145,11 @@
             document.body.appendChild(wrapDiv);
         }(globalThis);
     </script>
+<div class="btn-div">
+    <div><a class="vp360-btn" href="https://app.stammer.ai/en/chatbot/embed/c04cb2db-1fbd-46a7-9f7e-ecdd30fce4ba" target="_blank" rel="nofollow noopener">Live Chat</a></div>
+    <div><a class="vp360-btn" href="tel:+16106461995" target="_blank" rel="nofollow noopener">Call</a></div>
+    <div><a class="vp360-btn" href="mailto:sales@customaiexpert.com" target="_blank" rel="nofollow noopener">Email</a></div>
+    <div><a class="vp360-btn" href="https://calendar.app.google/WjBhxfgWnMatfEjd9" target="_blank" rel="nofollow noopener">Meeting</a></div>
+</div>
 </body>
-
 </html>
